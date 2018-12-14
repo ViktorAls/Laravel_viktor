@@ -18,10 +18,10 @@
             <div class="col-md-3">
                 {{--О оргонизации--}}
                 <div class="block org_block">
-                    <p><b>{{$one_organization->displayName}}</b></p>
+                    <p><b>{{$oneOrganization->displayName}}</b></p>
                         <ul>
-                            <li><b>ОГРН:</b> {{$one_organization->ogrn}}</li>
-                            <li><b>ОКТМО:</b> {{$one_organization->oktmo}}</li>
+                            <li><b>ОГРН:</b> {{$oneOrganization->ogrn}}</li>
+                            <li><b>ОКТМО:</b> {{$oneOrganization->oktmo}}</li>
                         </ul>
                 </div>
                 {{--Добавить пользователя организации--}}
@@ -77,7 +77,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($one_organization->workers as $worker)
+                            @foreach($oneOrganization->workers as $worker)
                                 <tr>
                                     <th scope="row">{{$loop->index+1}}</th>
                                     <td>{{$worker->firstname}}</td>

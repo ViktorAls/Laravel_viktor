@@ -29,8 +29,8 @@ class CompanyController extends Controller
 	//просмотр одной организация
 	public function oneOrganization($id)
 	{
-		$one_organization = Organizations::with('workers')->where('id', '=', $id)->whereNotNull('id')->firstOrFail();
-		return view('company.one',compact('one_organization'));
+		$oneOrganization = Organizations::with('workers')->where('id', '=', $id)->whereNotNull('id')->firstOrFail();
+		return view('company.one',compact('oneOrganization'));
 	}
 	
 	//удаление организации
