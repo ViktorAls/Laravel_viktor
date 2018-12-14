@@ -45,6 +45,6 @@
 		// просмотреть рабочего
 		public function worker($id){
 			$one_user = Workers::where('id','=',$id)->firstOrFail();
-			return view('working.info',compact('one_user'));
+			return view('working.info',compact('oneUser'));
 		}
 	}
