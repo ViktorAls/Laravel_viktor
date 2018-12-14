@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-@section('title',$one_organization->displayName)
+@section('title',$oneOrganization->displayName)
 <style>
     .trash{
         background: url('https://img.icons8.com/ios-glyphs/30/000000/close-window.png') top left no-repeat;
@@ -18,17 +18,17 @@
             <div class="col-md-3">
                 {{--О оргонизации--}}
                 <div class="block org_block">
-                    <p><b>{{$one_organization->displayName}}</b></p>
+                    <p><b>{{$oneOrganization->displayName}}</b></p>
                         <ul>
-                            <li><b>ОГРН:</b> {{$one_organization->ogrn}}</li>
-                            <li><b>ОКТМО:</b> {{$one_organization->oktmo}}</li>
+                            <li><b>ОГРН:</b> {{$oneOrganization->ogrn}}</li>
+                            <li><b>ОКТМО:</b> {{$oneOrganization->oktmo}}</li>
                         </ul>
                 </div>
                 {{--Добавить пользователя организации--}}
                 <div class="add_block block">
                     <p><b>Добавить работника</b></p>
                     <br>
-                    {!! Form::open(['action' => ['WorkerController@save','id'=>$one_organization->id],'method'=>'post']) !!}
+                    {!! Form::open(['action' => ['WorkerController@save','id'=>$oneOrganization->id],'method'=>'post']) !!}
                     <div class="form-group">
                         <p>{{Form::label('firstname','Имя: ')}}</p>
                         {{Form::text('firstname','',['class'=>'form-control'])}}
@@ -77,7 +77,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($one_organization->workers as $worker)
+                            @foreach($oneOrganization->workers as $worker)
                                 <tr>
                                     <th scope="row">{{$loop->index+1}}</th>
                                     <td>{{$worker->firstname}}</td>
@@ -87,7 +87,7 @@
                                     <td>{{$worker->snils}}</td>
                                     <td>
                                         <a href="{{url('worker',[$worker->id])}}" class="view"><i class="fab fa-readme"></i></a>
-                                        {!! Form::open(['action' => ['WorkerController@delete',$worker->id,$one_organization->id],'method'=>'post']) !!}
+                                        {!! Form::open(['action' => ['WorkerController@delete',$worker->id,$oneOrganization->id],'method'=>'post']) !!}
                                         {{Form::submit('',['class'=>'btn trash'])}}
                                         {!! Form::close() !!}
                                     </td>
